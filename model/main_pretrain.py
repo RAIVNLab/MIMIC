@@ -74,7 +74,7 @@ def get_args_parser():
                         help='epochs to warmup LR')
 
     # Dataset parameters
-    parser.add_argument('--data_path', default='/datasets01/imagenet_full_size/061417/', type=str,
+    parser.add_argument('--data_path', default='', type=str,
                         help='dataset path')
     parser.add_argument('--job_dir', default='./output_dir')
     parser.add_argument('--output_dir', default='./output_dir',
@@ -140,15 +140,14 @@ def main(args):
     cudnn.benchmark = True
     ###  training MAE with multiview dataset (cross view completion)
     if args.multiview:
-        transform_megadata = transforms.Compose([
+        transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
         patch_size = int(args.model[-2:])
-        dataset_train = MultiViewDataset(args.train_path_csv, args.base_data_path, args.n_views, transform_megadata, transform_imagenet, args.input_size, patch_size )
+        dataset_train = MultiViewDataset(args.train_path_csv, args.base_data_path, args.n_views, transform, args.input_size, patch_size )
     
     ###  training MAE with multiview dataset (single view completion)
     elif args.megadata:
-        print("in megadata..... ")
         transform_train = transforms.Compose([
             transforms.RandomResizedCrop(args.input_size, scale=(0.2, 1.0), interpolation=3),  # 3 is bicubic
             transforms.RandomHorizontalFlip(),

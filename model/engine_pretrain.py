@@ -129,7 +129,7 @@ def train_one_epoch_multiview(model: torch.nn.Module,
      
 
         with torch.cuda.amp.autocast(enabled = args.mixed_precision):
-            loss, _, _ = model(samples_view1, samples_view2, correspondence_mask, correspondences, mask_ratio=args.multiview_mask_ratio)
+            loss, _, _ = model(samples_view1, samples_view2, correspondence_mask, correspondences, mask_ratio=args.mask_ratio)
 
 
  
