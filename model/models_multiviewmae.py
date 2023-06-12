@@ -18,7 +18,7 @@ import torch.nn as nn
 from timm.models.vision_transformer import PatchEmbed, Block
 
 from util.pos_embed import get_2d_sincos_pos_embed
-from croco_blocks import DecoderBlock
+from cross_attention import DecoderBlock
 
 
 

@@ -20,7 +20,6 @@ import torch
 import torch.distributed as dist
 from torch._six import inf
 import re
-from termcolor import colored
 
 
 class SmoothedValue(object):
