@@ -1,2 +1,2 @@
-# MIMIC
-MIMIC: Masked Image Modeling with Image Correspondences
+# MIMIC: Masked Image Modeling with Image Correspondences
+
