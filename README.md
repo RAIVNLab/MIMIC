@@ -25,10 +25,6 @@
 
 
 ## Pretraining
-<p align="center">
-  <img src="assets/pretrain.png" width="250" height= "100">
-</p>
-
 
 The code for the model is based on [mae](https://github.com/facebookresearch/mae) codebase, we also added cross attention blocks from [croco](https://github.com/naver/croco). Other modifications to the data loader and model to process image pairs instead of single views can be found in the `model` folder. Pretraining instructions similar to mae is in `model/PRETRAIN.md`. However, you can use the command below to start the finetunning: (make sure your effective batch size (batch_size_per_gpu * nodes * gpus_per_node * accum_iter) is equal to 4096)
 
