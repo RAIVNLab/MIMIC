@@ -17,7 +17,7 @@
 
  you can download the zip file of image pairs with metadata by clicking on the name of each dataset: [HM3D](https://drive.google.com/file/d/1xitNF_vKrx5lqe1eWmEPlFl63l6WxL__/view?usp=sharing), [Gibson](https://drive.google.com/file/d/198KYNLk-9MiJ_4QjbaK_fayPNDAkM_j1/view?usp=sharing), [Matterport](https://drive.google.com/file/d/1mYhuYQxOwEpKT45j1MEifq92DTZV7jOB/view?usp=sharing), [Mannequin](https://drive.google.com/file/d/160rcbEXkpLrDdu13YK6t4cbwrGm-4l3k/view?usp=sharing), [ArkitScenes](https://drive.google.com/file/d/1ifSPHKU9VQ1AeimvXfp_CsJAXqTw9BSX/view?usp=sharing), [CO3D](https://drive.google.com/file/d/1Wszh2dyYEUY2WA-EBcWdk1RIztTcx06H/view?usp=sharing), [Objectron](https://drive.google.com/file/d/1OC5k6zOfOPVD85w74qHK7OEO6QhAi7iF/view?usp=sharing), [3DStreetView](https://drive.google.com/file/d/14eH-5UY0_PCOXYXEeOGl2nekhK31Y8Yq/view?usp=sharing), [DeMoN](https://drive.google.com/file/d/1_1TujxKg22PtdJV4-tMBK08KOU_UktWi/view?usp=sharing), [ScanNet](https://drive.google.com/file/d/1G-lJ7qcGu8HuOzPO22MgaUXJeM1WCLL2/view?usp=sharing).
 
- The whole dataset can be downloaded [here](https://drive.google.com/drive/folders/1UBCTsAQv5_sfgx1tj8yGbZqKVUu9HIfV?usp=sharing).
+ The whole dataset can be downloaded [here](https://drive.google.com/drive/folders/1UBCTsAQv5_sfgx1tj8yGbZqKVUu9HIfV?usp=sharing). The csv file containing paths for all 3 million image pairs is [here](https://drive.google.com/file/d/18yp6q8gQihEyyPtGudIBIHVEHL-VPXyo/view?usp=sharing).
  
  After unzipping files, the dataset would have the following structure:
  ```bash
@@ -27,12 +27,12 @@
             <Pair_Number>
                 <0000.jpg>  ## view 1
                 <0001.jpg>  ## view 2
-                <corresponding.npy> ## metadata
+                <corresponding.npy> ## matching information
         <Video/Scene_ID>
             <Pair_Number>
                 <0000.jpg>  ## view 1
                 <0001.jpg>  ## view 2
-                <corresponding.npy> ## metadata
+                <corresponding.npy> ## matching information
         .
         .
         .
