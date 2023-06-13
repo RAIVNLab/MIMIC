@@ -31,4 +31,23 @@ We used the [mae](https://github.com/facebookresearch/mae) code for linear probi
 
 
 ## Pretraining
-The code for the model is based on [mae](https://github.com/facebookresearch/mae) codebase, we also added cross attetion blocks from [croco](https://github.com/naver/croco). Other modifications to the dataloader and model to process image pairs instead of single views can be found in the `model` folder. 
+<p align="center">
+  <img src="assets/pretrain.png" width="700">
+</p>
+
+
+The code for the model is based on [mae](https://github.com/facebookresearch/mae) codebase, we also added cross attention blocks from [croco](https://github.com/naver/croco). Other modifications to the data loader and model to process image pairs instead of single views can be found in the `model` folder. Pretraining instructions similar to mae is in `model/PRETRAIN.md`. However, you can use the command below to start the finetunning: (make sure your effective batch size (batch_size_per_gpu * nodes * gpus_per_node * accum_iter) is equal to 4096)
+
+```bash
+ torchrun --nproc_per_node=8 main_pretrain.py  --multiview  --batch_size 128    --accum_iter 4     --model mae_vit_base_patch16     --norm_pix_loss     --mask_ratio 0.9     --epochs 200  --blr 1.5e-4  --warmup_epochs 20    --train_path_csv /path/to/csv --base_data_path /path/to/MIMIC/data/folder
+ ```
+
+## Requirements
+
+Pretraining requirements: [mae.yml](model/mae.yml)
+
+Dataset curation requirements: [dataset.yml](datasets/dataset.yml)
+
+## License
+
+This project is under the CC-BY-NC 4.0 license. See [LICENSE](LICENSE) for details.
