@@ -6,8 +6,8 @@
 
 * The code for the models in this repo is based on [mae](https://github.com/facebookresearch/mae) and [croco](https://github.com/naver/croco).
 
-## Dataset Download
-
+### Dataset Download
+***
 
 <p align="center">
   <img src="assets/dist.png" width="500">
@@ -19,8 +19,9 @@
 
  The whole dataset can be downloaded [here](https://drive.google.com/drive/folders/1UBCTsAQv5_sfgx1tj8yGbZqKVUu9HIfV?usp=sharing).
 
-## Dataset Curation
-
+### Dataset Curation
+***
+ The dataset curation instruction is in [DATASET.md](datasets/DATASET.md)
 
 
 

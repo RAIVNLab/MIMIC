@@ -91,32 +91,33 @@ def crop_center(img,cropx,cropy):
     starty = y//2-(cropy//2)    
     return img[starty:starty+cropy,startx:startx+cropx, :]
 
-def overlap(img1, img2, name):
-  
 
+# getting two images returns if they have sufficient overlap or not, if they had it would return the 
+# percentage and matching dictionary too
+def overlap(img1, img2, name):
     img1 = cv2.resize(img1, (WIDTH, HEIGHT))
     img2 = cv2.resize(img2, (WIDTH, HEIGHT))
     inliers, H = apply_sift(img1, img2) ## find homography
     if inliers == -1 or H is None:
-        # print(colored(name, "magenta"))
-        return False, None, None
-        
+        return False, None, None     
     else :
+        ## matching image 1 - > image 2
         patchdict1 = {}
         for patchid in range(0, NCOLS * NROWS):
             corres_patch , _ = find_corres_patch(patchid, H)
             if corres_patch != 'out' and corres_patch not in list(patchdict1.values()):
                 patchdict1[patchid] = corres_patch
-
+        ## matching image 2 - > image 1
         patchdict2 = {}
         for patchid in range(0, NCOLS * NROWS):
             corres_patch , _ = find_corres_patch(patchid, np.linalg.inv(H))
+            # only count the patches that havent been matched with previous patches and are not outside the image boundaries
             if corres_patch != 'out' and corres_patch not in list(patchdict2.values()):
                 patchdict2[patchid] = corres_patch
-        # print(len(patchdict1) ,len(patchdict2))
         if len(patchdict1) < len(patchdict2) :
           patchdict = patchdict1
         else:
+          ## change the matching to image 1 -> image 2
           patchdict =  {v: k for k, v in patchdict2.items()}
           assert len(patchdict) == len(patchdict2)
         if len(patchdict)/N_TOTAL * 100 > lowerbound and  len(patchdict)/N_TOTAL * 100 < uperbound:
