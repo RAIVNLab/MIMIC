@@ -65,7 +65,7 @@ The code for the model is based on [mae](https://github.com/facebookresearch/mae
  ```
 
 
- ### Fine-tunning
+ ### Fine-tuning
 ***
 
 The following table provides the pre-trained checkpoint on MIMIC3M used in the paper.
