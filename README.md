@@ -42,6 +42,7 @@
 
  ```
 
+The file `corresponding.npy` contains the correspondence information between view1 and view2. It is a dictionary like `{1:2, 15:100, 121: 4}` which the keys are the patch numbers in the first view (`0000.jpg`) and values are the patch numbers in the second view (`0001.jpg`). We assign index `0` to the top left patch and traverse row by row.
 ### Dataset Curation
 ***
  The dataset curation instruction is in [DATASET.md](datasets/DATASET.md)
@@ -53,7 +54,7 @@
 ### Pretraining
 ***
 
-The code for the model is based on [mae](https://github.com/facebookresearch/mae) codebase, we also added cross-attention blocks from [croco](https://github.com/naver/croco). Other modifications to the data loader and model to process image pairs instead of single views can be found in the `model` folder. Pretraining instructions similar to mae is in `model/PRETRAIN.md`. However, you can use the command below to start the finetuning: (make sure your effective batch size (batch_size_per_gpu * nodes * gpus_per_node * accum_iter) is equal to 4096)
+The code for the model is based on [mae](https://github.com/facebookresearch/mae) codebase, we also added cross attention blocks from [croco](https://github.com/naver/croco). Other modifications to the data loader and model to process image pairs instead of single views can be found in the `model` folder. Pretraining instructions similar to mae is in `model/PRETRAIN.md`. However, you can use the command below to start the finetunning: (make sure your effective batch size (batch_size_per_gpu * nodes * gpus_per_node * accum_iter) is equal to 4096)
 
 ```bash
  torchrun --nproc_per_node=8 main_pretrain.py  --multiview \
@@ -65,7 +66,7 @@ The code for the model is based on [mae](https://github.com/facebookresearch/mae
  ```
 
 
- ### Fine-tuning
+ ### Fine-tunning
 ***
 
 The following table provides the pre-trained checkpoint on MIMIC3M used in the paper.
@@ -81,7 +82,7 @@ The following table provides the pre-trained checkpoint on MIMIC3M used in the p
 </tr>
 </tbody></table>
 
-We used the [mae](https://github.com/facebookresearch/mae) code for linear probing, [multimae](https://github.com/EPFL-VILAB/MultiMAE) for semantic segmentation and depth estimation finetuning and [vitpose](https://github.com/ViTAE-Transformer/ViTPose) for pose estimation. If you are using multimae finetuning code, make sure to convert the checkpoint to the multimae format before evaluations.
+We used the [mae](https://github.com/facebookresearch/mae) code for linear probing, [multimae](https://github.com/EPFL-VILAB/MultiMAE) for semantic segmentation and depth estimation finetunning and [vitpose](https://github.com/ViTAE-Transformer/ViTPose) for pose estimation. If you are using multimae finetunnig code, make sure to convert the checkpoint to the multimae format before evalutions.
 
 
 
