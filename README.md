@@ -84,6 +84,8 @@ The following table provides the pre-trained checkpoint on MIMIC3M used in the p
 
 We used the [mae](https://github.com/facebookresearch/mae) code for linear probing, [multimae](https://github.com/EPFL-VILAB/MultiMAE) for semantic segmentation and depth estimation finetunning and [vitpose](https://github.com/ViTAE-Transformer/ViTPose) for pose estimation. If you are using multimae finetunnig code, make sure to convert the checkpoint to the multimae format before evalutions.
 
+The log files of the finetunning runs are in [finetune](finetune).
+
 
 
 ### Requirements
