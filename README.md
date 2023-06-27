@@ -8,7 +8,7 @@ In this repository, we provide the scripts and instructions to download and cura
 The figure below shows the end-to-end pipeline of MIMIC. MIMIC identifies data sources with indoor scenes/people/objects videos, 3D indoor environments, outdoor street views, and stereo pairs to determine potential
 multiview images. Next, it leverages traditional computer vision methods such as SIFT keypoint detection and homography transformation to locate corresponding patches. Finally, it filters pairs based on a threshold for significant overlap, ensuring a substantial percentage of pixels match between a pair.
 <p align="center">
-  <img src="assets/mimic.png" width="700">
+  <img src="assets/mimic.png" width="1000">
 </p>
 
 
