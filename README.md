@@ -56,7 +56,7 @@ The whole dataset can be downloaded [here](https://drive.google.com/drive/folder
 The file `corresponding.npy` contains the patch correspondences between view1 and view2. It is a Python dictionary e.g. `{1:2, 15:100, 121: 4}` in which the keys are the patch numbers in the first view (`0000.jpg`) and the values are the patch numbers in the second view (`0001.jpg`). We assign index `0` to the top left patch and traverse row by row.
  
 
-# Training with MIMIC-3M
+# Training
 
 Refer to [mae.yml](model/mae.yml) for creating a conda environment for pretraining. 
 The command to train CroCo on MIMIC is provided below. The effective batch size (batch_size_per_gpu * nodes * gpus_per_node * accum_iter) is equal to 4096.
@@ -101,7 +101,7 @@ python /gscratch/sciencehub/kmarathe/models/MIMIC/MIMIC/model/submitit_pretrain.
 
 
 
- # Fine-tuning
+ # Evaluation
 
  ## Pretrained checkpoint
 
