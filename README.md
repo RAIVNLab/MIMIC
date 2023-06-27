@@ -2,7 +2,7 @@
 
 
 
-[Kalyani Marathe*](https://kalyani7195.github.io/), [Mahtab Bigverdi*](https://mahtabbigverdi.github.io/), [Nishat Khan](), [Tuhin Kundu](),
+[Kalyani Marathe*](https://kalyani7195.github.io/), [Mahtab Bigverdi*](https://mahtabbigverdi.github.io/), [Nishat Khan](https://scholar.google.com/citations?user=Ax0CMh0AAAAJ&hl=en), [Tuhin Kundu](https://scholar.google.co.in/citations?hl=en&user=4LtLThQAAAAJ&view_op=list_works&sortby=pubdate),
 [Aniruddha Kembhavi](https://anikem.github.io/), [Linda G. Shapiro](https://homes.cs.washington.edu/~shapiro/),  [Ranjay Krishna](http://ranjaykrishna.com/index.html)
 
 [`arXiv`](https://github.com/RAIVNLab/MIMIC) | [`BibTeX`](#citation)
