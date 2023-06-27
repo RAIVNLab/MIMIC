@@ -119,9 +119,9 @@ For fine-tuning, refer to [MAE](https://github.com/facebookresearch/mae/blob/mai
 
 The log files of the finetuning runs are in [finetune](finetune).
 
-### Acknowledgements
+## Acknowledgements
 The code for model training is built on top of [MAE](https://github.com/facebookresearch/mae), uses cross-attention blocks from [CroCo](https://github.com/naver/croco), and refers to [MultiMAE](https://github.com/EPFL-VILAB/MultiMAE/tree/main) for evaluations. We thank them all for open-sourcing their work.  
 
 
-### License
+## License
 This project is under the CC-BY-NC 4.0 license. See [LICENSE](LICENSE) for details.
