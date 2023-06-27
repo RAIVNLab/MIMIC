@@ -1,5 +1,14 @@
 # MIMIC: Masked Image Modeling with Image Correspondences
-Welcome to the official repository of MIMIC! MIMIC is a data curation method that can be used to mine multiview image pairs from videos and synthetic 3D environments. It does not require any annotations such as  3D meshes, point clouds, and camera parameters. Using our method we curate MIMIC-3M, a dataset of 3.1 M image pairs, and train [MAE](https://github.com/facebookresearch/mae) and [CroCo](https://github.com/naver/croco) objectives.  
+
+
+
+[Kalyani Marathe*](https://kalyani7195.github.io/), [Mahtab Bigverdi*](https://mahtabbigverdi.github.io/), [Nishat Khan](), [Tuhin Kundu]()
+[Aniruddha Kembhavi](https://anikem.github.io/), [Linda G. Shapiro](https://homes.cs.washington.edu/~shapiro/),  [Ranjay Krishna](http://ranjaykrishna.com/index.html)
+
+[`arXiv`](https://github.com/RAIVNLab/MIMIC) | [`BibTeX`](#citation)
+
+
+Welcome to the official repository of MIMIC! MIMIC is a data curation method that can be used to mine multiview image pairs from videos and synthetic 3D environments. It does not require any annotations such as  3D meshes, point clouds, and camera parameters. Using MIMIC we curate MIMIC-3M, a dataset of 3.1 M image pairs, and train [MAE](https://github.com/facebookresearch/mae) and [CroCo](https://github.com/naver/croco) objectives.  
 In this repository, we provide the scripts and instructions to download and curate MIMIC-3M. We also provide the code to train [CroCo](https://github.com/naver/croco) and open-source the checkpoint trained using MIMIC-3M.    
 
 
@@ -55,7 +64,7 @@ The whole dataset can be downloaded [here](https://drive.google.com/drive/folder
 
 The file `corresponding.npy` contains the patch correspondences between view1 and view2. It is a Python dictionary e.g. `{1:2, 15:100, 121: 4}` in which the keys are the patch numbers in the first view (`0000.jpg`) and the values are the patch numbers in the second view (`0001.jpg`). We assign index `0` to the top left patch and traverse row by row.
  
-
+***
 # Training
 
 Refer to [mae.yml](model/mae.yml) for creating a conda environment for pretraining. 
@@ -99,7 +108,7 @@ python /gscratch/sciencehub/kmarathe/models/MIMIC/MIMIC/model/submitit_pretrain.
 ```
 
 
-
+***
 
  # Evaluation
 
@@ -123,9 +132,19 @@ For fine-tuning, refer to [MAE](https://github.com/facebookresearch/mae/blob/mai
 
 The log files of the finetuning runs are in [finetune](finetune).
 
+***
 # Acknowledgements
 The code for model training is built on top of [MAE](https://github.com/facebookresearch/mae), uses cross-attention blocks from [CroCo](https://github.com/naver/croco), and refers to [MultiMAE](https://github.com/EPFL-VILAB/MultiMAE/tree/main) for evaluations. We thank them all for open-sourcing their work.  
 
-
+***
 # License
 This project is under the CC-BY-NC 4.0 license. See [LICENSE](LICENSE) for details.
+
+***
+# Citing
+If you find this work useful, please consider citing us:
+```bash
+
+```
+***
+
