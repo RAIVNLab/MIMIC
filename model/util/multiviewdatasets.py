@@ -41,26 +41,26 @@ class MultiViewDataset(Dataset):
         if first_img_idx == 0:
             img1 = self.transform(Image.open(os.path.join(self.BASE_PATH, self.paths['path1'].iloc[index])).convert("RGB"))
             img2 = self.transform(Image.open(os.path.join(self.BASE_PATH, self.paths['path2'].iloc[index])).convert("RGB"))
-            correspondences_dict = np.load(os.path.join(self.BASE_PATH + self.paths['correspondence'].iloc[index]), allow_pickle=True).tolist()
-            correspondences = [0] *  self.lookup_table_size
-            correspondence_mask = [0] * self.lookup_table_size
-            for key, val in correspondences_dict.items():
-                correspondences[key] = val
-                correspondence_mask[key] =1
+            # correspondences_dict = np.load(os.path.join(self.BASE_PATH + self.paths['correspondence'].iloc[index]), allow_pickle=True).tolist()
+            # correspondences = [0] *  self.lookup_table_size
+            # correspondence_mask = [0] * self.lookup_table_size
+            # for key, val in correspondences_dict.items():
+            #     correspondences[key] = val
+            #     correspondence_mask[key] =1
             
         else:
             img1 = self.transform(Image.open(os.path.join(self.BASE_PATH, self.paths['path2'].iloc[index])).convert("RGB"))
             img2 = self.transform(Image.open(os.path.join(self.BASE_PATH, self.paths['path1'].iloc[index])).convert("RGB"))
-            correspondences_dict = np.load(os.path.join(self.BASE_PATH + self.paths['correspondence'].iloc[index]), allow_pickle=True).tolist()
-            correspondences = [0] *  self.lookup_table_size
-            correspondence_mask = [0] * self.lookup_table_size
-            # since the second img in the csv is the first image now
-            # correspondence mask is created to handle the case of zero 
-            for key, val in correspondences_dict.items():
-                correspondences[val] = key
-                correspondence_mask[val] =1
+            # correspondences_dict = np.load(os.path.join(self.BASE_PATH + self.paths['correspondence'].iloc[index]), allow_pickle=True).tolist()
+            # correspondences = [0] *  self.lookup_table_size
+            # correspondence_mask = [0] * self.lookup_table_size
+            # # since the second img in the csv is the first image now
+            # # correspondence mask is created to handle the case of zero 
+            # for key, val in correspondences_dict.items():
+            #     correspondences[val] = key
+            #     correspondence_mask[val] =1
 
-        return img1,img2, torch.tensor(correspondence_mask), torch.tensor(correspondences)
+        return img1,img2 #, torch.tensor(correspondence_mask), torch.tensor(correspondences)
 
 
     def __len__(self):

@@ -288,7 +288,7 @@ class MaskedAutoencoderViT(nn.Module):
 
 
     
-    def forward(self, imgs_view1, imgs_view2, correspondence_mask, correspondences, mask_ratio=0.9):
+    def forward(self, imgs_view1, imgs_view2, mask_ratio=0.9):
         latent_view1, mask_view1, ids_restore_view1 = self.forward_encoder(imgs_view1, mask_ratio)
         latent_view2, mask_view2, ids_restore_view2 = self.forward_encoder(x=imgs_view2, mask_ratio=0.0)
         #essentially mask_view 2 is gonna be all zeros!

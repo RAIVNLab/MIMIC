@@ -45,7 +45,7 @@ def train_one_epoch(model: torch.nn.Module,
         samples = samples.to(device, non_blocking=True)
 
         with torch.cuda.amp.autocast():
-            loss, _, _ = model(samples, mask_ratio=args.singleview_mask_ratio)
+            loss, _, _ = model(samples, mask_ratio=args.mask_ratio)
 
         loss_value = loss.item()
 
@@ -124,12 +124,12 @@ def train_one_epoch_multiview(model: torch.nn.Module,
 
         samples_view1 = samples[0].to(device, non_blocking=True)
         samples_view2 = samples[1].to(device, non_blocking=True)
-        correspondence_mask  = samples[2].to(device, non_blocking=True)
-        correspondences = samples[3].to(device, non_blocking=True)
+        #correspondence_mask  = samples[2].to(device, non_blocking=True)
+        #correspondences = samples[3].to(device, non_blocking=True)
      
 
         with torch.cuda.amp.autocast(enabled = args.mixed_precision):
-            loss, _, _ = model(samples_view1, samples_view2, correspondence_mask, correspondences, mask_ratio=args.mask_ratio)
+            loss, _, _ = model(samples_view1, samples_view2, mask_ratio=args.mask_ratio)
 
 
  
