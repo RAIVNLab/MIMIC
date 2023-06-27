@@ -58,28 +58,48 @@ The file `corresponding.npy` contains the patch correspondences between view1 an
 
 ## Training with MIMIC-3M
 
-Refer to the following file for creating a conda environment for pretraining: [mae.yml](model/mae.yml)
-
-
-
- Other modifications to the data loader and model to process image pairs instead of single views can be found in the `model` folder. (make sure your effective batch size (batch_size_per_gpu * nodes * gpus_per_node * accum_iter) is equal to 4096)
+Refer to [mae.yml](model/mae.yml) for creating a conda environment for pretraining. 
+The command to train CroCo on MIMIC is provided below. The effective batch size (batch_size_per_gpu * nodes * gpus_per_node * accum_iter) is equal to 4096.
 
 ```bash
 torchrun --nproc_per_node=8 main_pretrain.py  --multiview \
---batch_size 128 \
---accum_iter 4 \
---model mae_vit_base_patch16 \
---norm_pix_loss \
---mask_ratio 0.9 \
---epochs 200 \
---blr 1.5e-4 \
---warmup_epochs 20 \
---train_path_csv /path/to/csv \
---base_data_path /path/to/MIMIC/data/folder
+    --batch_size 128 \
+    --accum_iter 4 \
+    --model mae_vit_base_patch16 \
+    --norm_pix_loss \
+    --mask_ratio 0.9 \
+    --epochs 200 \
+    --blr 1.5e-4 \
+    --warmup_epochs 20 \
+    --train_path_csv /path/to/csv \
+    --base_data_path /path/to/MIMIC/data/folder
  ```
 
+To train models in a multi-node setup refer to the following command:
+```bash
+python /gscratch/sciencehub/kmarathe/models/MIMIC/MIMIC/model/submitit_pretrain.py \
+    --job_dir job_dir \
+    --base_data_path base_data_path \
+    --train_path_csv /path/to/csv \
+    --multiview \
+    --accum_iter 4 \
+    --nodes 2 \
+    --batch_size 64 \
+    --model mae_vit_base_patch16 \
+    --norm_pix_loss \
+    --mask_ratio 0.9 \
+    --epochs 200 \
+    --warmup_epochs 20 \
+    --blr 1.5e-4 \
+    --account account \
+    --partition gpu-a40 \
+    --timeout timeout --report_to_wandb \
+    --wandb_project croco --wandb_entity entity \
+    --run_name croco_400_vitb \
+```
 
- ## Fine-tuning
+### Pretrained checkpoint
+
 The following table provides the pre-trained checkpoint on MIMIC-3M used in the paper.
 <table><tbody>
 <!-- START TABLE -->
@@ -93,18 +113,15 @@ The following table provides the pre-trained checkpoint on MIMIC-3M used in the 
 </tr>
 </tbody></table>
 
-We used the [mae](https://github.com/facebookresearch/mae) code for linear probing, [multimae](https://github.com/EPFL-VILAB/MultiMAE) for semantic segmentation and depth estimation fine-tuning, and [vitpose](https://github.com/ViTAE-Transformer/ViTPose) for pose estimation. If you are using MultiMAE finetuning code, make sure to convert the checkpoint to the MultiMAE format before evaluations using the following converter: [link](https://github.com/EPFL-VILAB/MultiMAE/blob/main/tools/vit2multimae_converter.py)
+
+ ## Fine-tuning
+For fine-tuning, refer to [MAE](https://github.com/facebookresearch/mae/blob/main/FINETUNE.md) for linear probing, [MultiMAE](https://github.com/EPFL-VILAB/MultiMAE/blob/main/FINETUNING.md) for semantic segmentation and depth estimation, and [ViTPose](https://github.com/ViTAE-Transformer/ViTPose) for pose estimation. Make sure to convert the checkpoint to the MultiMAE format before evaluations using the following converter: [link](https://github.com/EPFL-VILAB/MultiMAE/blob/main/tools/vit2multimae_converter.py) for depth estimation and semantic segmentations tasks
 
 The log files of the finetuning runs are in [finetune](finetune).
 
 ### Acknowledgements
-The code for model training is built on top of [MAE](https://github.com/facebookresearch/mae) and we also referred to cross-attention blocks from [CroCo](https://github.com/naver/croco).
-
-
-
+The code for model training is built on top of [MAE](https://github.com/facebookresearch/mae), uses cross-attention blocks from [CroCo](https://github.com/naver/croco), and refers to [MultiMAE](https://github.com/EPFL-VILAB/MultiMAE/tree/main) for evaluations. We thank them all for open-sourcing their work.  
 
 
 ### License
-***
-
 This project is under the CC-BY-NC 4.0 license. See [LICENSE](LICENSE) for details.
