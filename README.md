@@ -95,7 +95,7 @@ python /gscratch/sciencehub/kmarathe/models/MIMIC/MIMIC/model/submitit_pretrain.
     --partition gpu-a40 \
     --timeout timeout --report_to_wandb \
     --wandb_project croco --wandb_entity entity \
-    --run_name croco_400_vitb \
+    --run_name croco_200_vitb \
 ```
 
 
