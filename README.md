@@ -143,7 +143,7 @@ This project is under the CC-BY-NC 4.0 license. See [LICENSE](LICENSE) for detai
 ***
 # Citation
 If you find this work useful, please consider citing us:
-```bash
+```BibTeX
 @misc{marathe2023mimic,
       title={MIMIC: Masked Image Modeling with Image Correspondences}, 
       author={Kalyani Marathe and Mahtab Bigverdi and Nishat Khan and Tuhin Kundu and Aniruddha Kembhavi and Linda G. Shapiro and Ranjay Krishna},
