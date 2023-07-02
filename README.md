@@ -144,13 +144,11 @@ This project is under the CC-BY-NC 4.0 license. See [LICENSE](LICENSE) for detai
 # Citation
 If you find this work useful, please consider citing us:
 ```BibTeX
-@misc{marathe2023mimic,
-      title={MIMIC: Masked Image Modeling with Image Correspondences}, 
-      author={Kalyani Marathe and Mahtab Bigverdi and Nishat Khan and Tuhin Kundu and Aniruddha Kembhavi and Linda G. Shapiro and Ranjay Krishna},
-      year={2023},
-      eprint={2306.15128},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{marathe2023mimic,
+  title={MIMIC: Masked Image Modeling with Image Correspondences},
+  author={Marathe, Kalyani and Bigverdi, Mahtab and Khan, Nishat and Kundu, Tuhin and Kembhavi, Aniruddha and Shapiro, Linda G and Krishna, Ranjay},
+  journal={arXiv preprint arXiv:2306.15128},
+  year={2023}
 }
 
 ```
