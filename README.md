@@ -29,7 +29,7 @@ The figure below shows the distribution of MIMIC-3M. Real data sources, includin
 </p>
 
 
-## Dataset curations scripts
+## Dataset curation scripts
 The instructions to mine potential pairs are provided in [DATASET.md](datasets/DATASET.md). You can also use these scripts to mine potential pairs on your own video datasets/ synthetic environments. 
 Refer to the following file for setting up a conda environment to mine MIMIC-3M : [dataset.yml](datasets/dataset.yml)
 
