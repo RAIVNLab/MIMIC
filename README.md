@@ -1,4 +1,4 @@
-# <img src="https://github.com/RAIVNLab/MIMIC/blob/main/assets/mimic_icon.png" height="25"> MIMIC: Masked Image Modeling with Image Correspondences
+# MIMIC: Masked Image Modeling with Image Correspondences
 
 
 
