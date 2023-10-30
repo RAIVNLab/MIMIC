@@ -86,7 +86,7 @@ torchrun --nproc_per_node=8 main_pretrain.py  --multiview \
 
 To train models in a multi-node setup refer to the following command:
 ```bash
-python /gscratch/sciencehub/kmarathe/models/MIMIC/MIMIC/model/submitit_pretrain.py \
+python submitit_pretrain.py \
     --job_dir job_dir \
     --base_data_path base_data_path \
     --train_path_csv /path/to/csv \
