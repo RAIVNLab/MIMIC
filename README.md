@@ -5,7 +5,8 @@
 [Kalyani Marathe*](https://kalyani7195.github.io/), [Mahtab Bigverdi*](https://mahtabbigverdi.github.io/), [Nishat Khan](https://scholar.google.com/citations?user=Ax0CMh0AAAAJ&hl=en), [Tuhin Kundu](https://scholar.google.co.in/citations?hl=en&user=4LtLThQAAAAJ&view_op=list_works&sortby=pubdate),
 [Aniruddha Kembhavi](https://anikem.github.io/), [Linda G. Shapiro](https://homes.cs.washington.edu/~shapiro/),  [Ranjay Krishna](http://ranjaykrishna.com/index.html)
 
-[`arXiv`](https://arxiv.org/pdf/2306.15128.pdf) | [`BibTeX`](#citation)
+[`arXiv`](https://arxiv.org/pdf/2306.15128.pdf) | [`BibTeX`](#citation)|
+[`Hugging Face`](https://huggingface.co/datasets/MahtabBg/MIMIC)
 
 
 Welcome to the official repository of MIMIC! MIMIC is a data curation method that can be used to mine multiview image pairs from videos and synthetic 3D environments. It does not require any annotations such as  3D meshes, point clouds, and camera parameters. Using MIMIC we curate MIMIC-3M, a dataset of 3.1 M image pairs, and train [MAE](https://github.com/facebookresearch/mae) and [CroCo](https://github.com/naver/croco) objectives.  
